@@ -352,6 +352,7 @@ static void calculate_vmpressure_win(void)
 	vmpressure_win = x;
 }
 
+
 static void vmpressure_global(gfp_t gfp, unsigned long scanned,
 		unsigned long reclaimed)
 {
