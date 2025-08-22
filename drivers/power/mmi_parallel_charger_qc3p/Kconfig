@@ -7,3 +7,12 @@ config MMI_PARALLEL_CHARGER_QC3P
 
 	  This driver can also be built as a module.  If so, the module
 	  will be called mmi_parallel_charger_qc3p.
+
+config MMI_QC3P_RESET_ON_DISCONNECT
+	bool "Reset QC3P controller on disconnect"
+	depends on MMI_PARALLEL_CHARGER_QC3P
+	default y
+	help
+	  This option resets the QC3P controller when the charger is
+	  disconnected. This can help to fix fast charging issues on
+	  some devices.

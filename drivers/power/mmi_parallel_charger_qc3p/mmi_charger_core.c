@@ -45,6 +45,8 @@
 #include "mmi_charger_core.h"
 #include "mmi_charger_policy.h"
 
+extern int wt6670f_do_reset(void);
+
 static int __debug_mask = 0x85;
 module_param_named(
 	debug_mask, __debug_mask, int, S_IRUSR | S_IWUSR
@@ -1031,6 +1033,11 @@ static void cancel_sm(struct mmi_charger_manager *chip)
 {
 	union power_supply_propval val;
 	int ret;
+
+	if (IS_ENABLED(CONFIG_MMI_QC3P_RESET_ON_DISCONNECT) && chip->pd_pps_support) {
+		mmi_chrg_info(chip, "Resetting qc3p chip on disconnect\n");
+		wt6670f_do_reset();
+	}
 
 	cancel_delayed_work_sync(&chip->mmi_chrg_sm_work);
 	flush_delayed_work(&chip->mmi_chrg_sm_work);
