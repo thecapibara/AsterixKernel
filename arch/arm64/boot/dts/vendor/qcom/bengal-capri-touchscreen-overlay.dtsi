@@ -150,6 +150,7 @@
 		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
 		panel = <&dsi_djn_nt36525b_652_video &dsi_djn_nt36525b_652_vid_v0>;
 		novatek,panel-supplier = "djn";
+		wakeup-source;
 	};
 	ilitek@1{
 		compatible = "tchip,ilitek";
@@ -165,5 +166,6 @@
 		pinctrl-0 = <&ts_int_active>;
 		pinctrl-1 = <&ts_int_suspend_high>;
 		panel = <&dsi_txd_ili9882h_652_video &dsi_tm_ili9882n_652_video &dsi_txd_ili7806s_652_video>;
+		wakeup-source;
 	};
 };
