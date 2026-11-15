@@ -505,7 +505,8 @@
 				<&bq2597x PSY_IIO_MMI_CP_INPUT_CURRENT_NOW>,
 				<&bq2597x PSY_IIO_MMI_CP_INPUT_VOLTAGE_NOW>,
 				<&bq2597x PSY_IIO_CP_STATUS1>,
-				<&bq2597x PSY_IIO_CP_CLEAR_ERROR>;
+				<&bq2597x PSY_IIO_CP_CLEAR_ERROR>,
+				<&mmi_discrete_charger PSY_IIO_CP_ENABLE>;
 
 		io-channel-names = "hw_current_max",
 					"charging_enabled",
@@ -521,7 +522,8 @@
 					"cp_input_current_now",
 					"cp_input_voltage_settled",
 					"cp_status1",
-					"cp_clear_error";
+					"cp_clear_error",
+					"mmi_cp_enabled_status";
 
 	//	qcom,usbpd-phandle = <&pm7250b_pdphy>;
 		mmi,pps-volt-steps = <20000>;
